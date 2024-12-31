@@ -1,8 +1,0 @@
-langchain-core
-langchain-community
-langchain-openai
-langchain_ollama
-# supabase-py
-supabase
-python-dotenv
-nltk

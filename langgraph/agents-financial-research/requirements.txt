@@ -1,9 +1,0 @@
-python-dotenv
-typing
-langgraph
-langchain
-langchain_openai
-langchain_experimental
-langchain-core
-langchain-community
-pydantic

@@ -1,0 +1,8 @@
+langchain-core
+langchain-community
+langchain_ollama
+langchain-openai
+langchain_chroma
+pyppeteer
+pypdf
+uuid

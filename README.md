@@ -1,21 +1,42 @@
-# Tutorials
+## Chat to PDF
 
-Welcome to **[AI Software Developer](https://www.youtube.com/@AISoftwareDeveloper)** — the go-to source for developers, students, architects, and tech leads looking to harness the power of AI for cutting-edge software engineering!
+### Use your own files
 
-[Watch on YouTube](https://www.youtube.com/@AISoftwareDeveloper)
+- Check out the tutorial code from [GitHub](https://github.com/aidev9/tuts/tree/main/langchain-rag-pdf/tutorial-1)
 
-[![RAG WITH LANGCHAIN](https://img.youtube.com/vi/nEa_-sY9RtM/0.jpg)](https://www.youtube.com/watch?v=nEa_-sY9RtM)
+- Install the required libraries by running `pip install -r requirements.txt`
 
-### About
-We’re here to help you enhance your workflows, streamline business processes, and build smarter applications. From AI-powered tools to in-depth tutorials on software architecture and full-stack development, we provide the knowledge you need to stay ahead in today’s fast-evolving tech world.
+- If you haven't installed Ollama, do so by running `brew install ollama` (Mac)
 
-🔧 What You'll Find Here:
+- Pull Llama 3.2 by running `ollama pull llama3.2`
 
-- Step-by-step coding tutorials
-- Deep dives into AI tools like OpenAI, LangChain, LangGraph and NotebookLM
-- Best practices for scalable full-stack apps
-- Real-world projects that tackle complex use cases
-- Insights on system architecture, software engineering principles, and more
+- Pull mxbai-embed-large embedding model by running `ollama pull mxbai-embed-large`
 
-### Contact
-[@AISoftwareDev9](https://x.com/AISoftwareDev9)
+- Drop your PDF files into [`./data`](./data)
+
+- Open a new terminal and ingest your PDF files into ChromaDB by running `python ingest.py`. Leave the terminal open as you can drop more files into the [`./data`](./data) folder and the script will automatically pick them up
+
+- Open a second terminal and run the RAG chatbot with `python chat.py`
+
+- Ask questions
+
+### Tweaks
+
+- Change the chunk and overlap in [`ingest.py`](./ingest.py) and observe search results. Defaults are:
+
+  - `chunk_size = 1000`
+  - `chunk_overlap = 50`
+
+- Change the models from Ollama to OpenAI or another model by adding them to [`models.py`](./models.py) first and then changing the `embeddings` and `llm` references in [`ingest.py`](./ingest.py) and [`chat.py`](./chat.py)
+
+### Talk to OWASP Secure Coding Standards
+
+- Delete all files from the [`./data`](./data) folder
+
+- Delete the ChromaDB local files at [`./db`](./db) folder
+
+- Open a new terminal and run `python html-to-pdf.py`. This will scrape the OWASP website and create 10 PDF files inside the [`./data`](./data) folder
+
+- Run the ingestion script
+
+- Ask questions related to secure coding standards
